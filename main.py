@@ -1,5 +1,6 @@
 import speech_recognition as sr  
 import webbrowser
+import time
 from time import ctime
 
 r = sr.Recognizer()
@@ -35,11 +36,13 @@ def respond(voice_data):
 		url = 'https://google.com/maps/place/' + location + '/&amp;'
 		webbrowser.get().open(url)
 		print('Here is the location of ' + location)
+	if 'exit' in voice_data:
+		exit()
 
 
-
-
+time.sleep(1)
 print("How can i help you?")
-voice_data = record_audio()
-respond(voice_data)
+while 1:
+	voice_data = record_audio()
+	respond(voice_data)
 
