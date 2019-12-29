@@ -29,7 +29,15 @@ def respond(voice_data):
 		search = record_audio('What do you want to search for')
 		url = 'https://google.com/search?q=' + search
 		webbrowser.get().open(url)
-		print('Here is what i found for ' + search)
+		print('Here is what I found for ' + search)
+	if 'find location' in voice_data:
+		location = record_audio('What is the location')
+		url = 'https://google.com/maps/place/' + location + '/&amp;'
+		webbrowser.get().open(url)
+		print('Here is the location of ' + location)
+
+
+
 
 print("How can i help you?")
 voice_data = record_audio()
